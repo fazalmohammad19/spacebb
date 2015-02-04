@@ -32,7 +32,7 @@ class ExtensionTablesTable extends Table
             'foreignKey' => 'extension_table_id'
         ]);
 
-        $this->addBehavior('CreateTable');
+        $this->addBehavior('SpaceTable');
     }
 
     /**

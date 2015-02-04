@@ -141,12 +141,12 @@ class ExtensionTablesController extends AppController
 
 
 
-        $this->ExtensionTables->space_create('articles','forums',$table_col);
+       // $this->ExtensionTables->space_create('articles','forums',$table_col);
         //INSERT INTO `space`.`extension_rows` (`id`, `extension_table_id`, `created`) VALUES (NULL, '1', '2015-02-02 00:00:00');
-        $sql="INSERT   INTO articles ('title','body', 'created', 'modified') VALUES ('This is title', 'This is body This is body This is body', '2015-02-01 00:00:00', '2015-02-02 00:00:00')";
+        $sql="insert   INTO articles ('title','body', 'created', 'modified') VALUES ('This is title', 'This is body This is body This is body', '2015-02-01 00:00:00', '2015-02-02 00:00:00')";
 
 
-        $this->ExtensionTables->space_insert($sql);
-        exit;
+        $this->ExtensionTables->space_query($sql);
+        //exit;
     }
 }
