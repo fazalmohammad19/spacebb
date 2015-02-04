@@ -6,6 +6,8 @@ use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\Utility\Hash;
 use Cake\Core\Exception\Exception;
+use PHPSQL\Parser;
+
 
 class CreateTableBehavior extends Behavior
 {
@@ -53,8 +55,12 @@ class CreateTableBehavior extends Behavior
 
     }
 
-    public function space_insert()
+    public function space_insert($sql)
     {
+pr($sql);
+        $parser=new Parser($sql, true);
+        pr($parser->parsed);
+     
 
     }
 

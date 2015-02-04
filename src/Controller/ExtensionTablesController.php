@@ -1,9 +1,7 @@
 <?php
 namespace App\Controller;
-
 use App\Controller\AppController;
 use Cake\Utility\Hash;
-
 /**
  * ExtensionTables Controller
  *
@@ -137,12 +135,18 @@ class ExtensionTablesController extends AppController
 
         $table_col[]=array('field'=>'title','type'=>'varchar');
         $table_col[]=array('field'=>'body','type'=>'text');
-        $table_col[]=array('field'=>'ttt','type'=>'varchar');
-        pr($table_col);
+        $table_col[]=array('field'=>'created','type'=>'datetime');
+        $table_col[]=array('field'=>'modified','type'=>'datetime');
+       // pr($table_col);
 
 
 
-        $this->ExtensionTables->create_space('articles','forums',$table_col);
-      //  exit;
+        $this->ExtensionTables->space_create('articles','forums',$table_col);
+        //INSERT INTO `space`.`extension_rows` (`id`, `extension_table_id`, `created`) VALUES (NULL, '1', '2015-02-02 00:00:00');
+        $sql="INSERT   INTO articles ('title','body', 'created', 'modified') VALUES ('This is title', 'This is body This is body This is body', '2015-02-01 00:00:00', '2015-02-02 00:00:00')";
+
+
+        $this->ExtensionTables->space_insert($sql);
+        exit;
     }
 }
